@@ -96,8 +96,14 @@ select {
   line-height: 40px;
   border-radius: 50%;
   margin: 10px;
-  /* background: rgba(255, 255, 255, 0.3); */
+  background: rgba(255, 255, 255, 0.3);
   color: transparent;
+}
+.trap {
+	background: rgba(255, 0, 0, 0.3);
+}
+.map {
+	background: rgba(0, 255, 0, 0.3);
 }
 .players {
   display: flex;
@@ -116,11 +122,26 @@ select {
 .player1 {
   background-color: black;
 }
+.cell.player1 {
+	margin-top: 10px;
+	background-color: black;
+	display: block;
+}
 .player2 {
   background-color: white;
 }
+.cell.player2 {
+	margin-top: 10px;
+	background-color: white;
+	display: block;
+}
 .player3 {
   background-color: yellow;
+}
+.cell.player3 {
+	margin-top: 10px;
+	background-color: yellow;
+	display: block;
 }
 .course {
   margin-top: 20px;

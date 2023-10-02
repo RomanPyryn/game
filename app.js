@@ -27,24 +27,44 @@ function startGame() {
 function createBoard() {
   const board = document.getElementById("board");
   board.innerHTML = "";
+  const mapPositions = generateUniqueRandomPositions(10, boardSize);
+  const trapPositions = generateUniqueRandomPositions(10, boardSize);
   for (let i = 1; i <= boardSize; i++) {
     const cell = document.createElement("div");
     cell.className = "cell";
     cell.textContent = i;
+    if (mapPositions.includes(i)) {
+      cell.classList.add("map");
+    } else if (trapPositions.includes(i)) {
+      cell.classList.add("trap");
+    }
     board.appendChild(cell);
   }
   updatePlayerPositions();
 }
 
+function generateUniqueRandomPositions(count, maxPosition) {
+  const positions = [];
+  while (positions.length < count) {
+    const randomPosition = Math.floor(Math.random() * maxPosition) + 1;
+    if (!positions.includes(randomPosition)) {
+      positions.push(randomPosition);
+    }
+  }
+  return positions;
+}
+
+
 function updatePlayerPositions() {
   const cells = document.getElementsByClassName("cell");
   for (let i = 0; i < cells.length; i++) {
-    cells[i].style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    cells[i].classList.remove("player1", "player2", "player3");
   }
   for (let i = 0; i < playerCount; i++) {
     const position = playerPositions[i];
     if (position <= boardSize) {
-      cells[position - 1].style.backgroundColor = playerColors[i];
+      const playerClass = "player" + (i + 1);
+      cells[position - 1].classList.add(playerClass);
     }
   }
 }
