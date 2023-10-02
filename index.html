@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Пірати</title>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="game">
+      <div class="board" id="board">
+        
+      </div>
+      <div class="control">
+				<div class="control__wrapper">
+					<img src="./images/text.png" alt="Пірати">
+        <div class="control__select">
+          <label for="playerCount">Скільки піратів?
+          </label>
+          <select id="playerCount">
+            <option value="1">1 гравець</option>
+            <option value="2">2 гравці</option>
+            <option value="3">3 гравці</option>
+          </select>
+          <button onclick="startGame()">Почати гру</button>
+        </div>
+        <div class="players">
+          <div class="player1"></div>
+          <div class="player2"></div>
+          <div class="player3"></div>
+        </div>
+        <div class="course">
+          <p class="course__rang">-</p>
+          <button class="cube" onclick="rollDice()">Кинути кубик</button>
+        </div>
+				</div>
+        <button class="newGame" onclick="resetGame()">Нова гра</button>
+      </div>
+    </div>
+  </body>
+</html>
